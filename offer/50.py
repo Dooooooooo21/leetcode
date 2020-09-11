@@ -16,8 +16,6 @@ class Solution(object):
         for c in s:
             dic[c] = not c in dic
 
-        print(dic)
-
         for c in s:
             if dic[c]:
                 return c
@@ -26,4 +24,4 @@ class Solution(object):
 
 
 s = Solution()
-s.firstUniqChar('leetcode')
+s.firstUniqChar('eeetcod')
