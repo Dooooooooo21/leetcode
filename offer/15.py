@@ -13,3 +13,16 @@ class Solution(object):
             flag = flag << 1
 
         return count
+
+    def hammingWeight2(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        count = 0
+
+        while n:
+            count += 1
+            n = (n - 1) & n
+
+        return count
