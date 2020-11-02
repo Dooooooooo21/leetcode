@@ -25,6 +25,7 @@ class Solution(object):
                 e_flag = True
                 num_flag = False
             elif c == '-' or c == '+':
+                # -1E-16  +-出现在0的位置或者e/E后面第一个位置才是合法的
                 if index != 0 and s[index - 1] != 'e' and s[index - 1] != 'E':
                     return False
             else:
