@@ -34,4 +34,4 @@ class Solution(object):
 
 
 solution = Solution()
-print(solution.printNumbers2(4))
+print(solution.printNumbers2(2))
