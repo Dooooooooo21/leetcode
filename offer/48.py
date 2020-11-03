@@ -25,5 +25,26 @@ class Solution(object):
 
         return result
 
+    def lengthOfLongestSubstring2(self, s):
+        i, n = 0, len(s)
+        ans, h = 0, set()
+        j = 0
+        # for j in range(n):
+        while j < n:
+            if s[j] in h:
+                i = i + 1
+                j = i
+                h.clear()
 
-print(Solution().lengthOfLongestSubstring('abcabcbb'))
+            h.add(s[j])
+            ans = max(ans, j - i + 1)
+            j += 1
+
+        return ans
+
+
+print(Solution().lengthOfLongestSubstring2('abcabcbb'))
+
+for i in range(10):
+    print(i)
+    i += 1
