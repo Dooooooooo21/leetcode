@@ -12,7 +12,7 @@ class Solution(object):
         :rtype: ListNode
         """
         if head is None:
-            return False
+            return None
 
         if head.next is None:
             return head
