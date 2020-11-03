@@ -33,3 +33,17 @@ class Solution(object):
             node.left, node.right = node.right, node.left
 
         return root
+
+    def mirrorTree2(self, root):
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
+        if not root:
+            return
+
+        tmp = root.left
+        root.left = self.mirrorTree(root.right)
+        root.right = self.mirrorTree(tmp)
+
+        return root
