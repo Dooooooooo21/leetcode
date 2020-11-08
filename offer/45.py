@@ -4,6 +4,8 @@
 # @Author  : dly
 # @File    : 45.py
 # @Desc:
+
+# s1 + s2 > s2 + s1, 将s2放在前面
 class Solution(object):
     def minNumber(self, nums):
         """
@@ -24,9 +26,14 @@ class Solution(object):
                 strs[i], strs[j] = strs[j], strs[i]
 
             strs[i], strs[l] = strs[l], strs[i]
+            print(strs)
             quick_sort(l, i - 1)
             quick_sort(i + 1, r)
 
         strs = [str(num) for num in nums]
         quick_sort(0, len(strs) - 1)
         return ''.join(strs)
+
+
+s = Solution()
+s.minNumber([333, 380, 343, 35, 393])
