@@ -4,6 +4,10 @@
 # @Author  : dly
 # @File    : 54.py
 # @Desc    :
+
+# 二叉搜索树
+# 中序遍历查找第 k大的值
+
 class Solution(object):
     def kthLargest(self, root, k):
         """
