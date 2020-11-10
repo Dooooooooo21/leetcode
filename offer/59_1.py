@@ -3,7 +3,7 @@
 # @Time    : 2020/9/24 21:39
 # @Author  : dly
 # @File    : 59_1.py
-# @Desc    :
+# @Desc    : 滑动窗口的最大值，辅助单调队列
 
 import collections
 
@@ -19,7 +19,6 @@ class Solution(object):
             return []
 
         deque = collections.deque()
-        res = []
 
         for i in range(k):
             while deque and deque[-1] < nums[i]:
@@ -36,3 +35,7 @@ class Solution(object):
             res.append(deque[0])
 
         return res
+
+
+s = Solution()
+s.maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3)
