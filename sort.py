@@ -97,6 +97,32 @@ def merge_sort(nums):
     return merge(left, right)
 
 
+# 快速排序
+def quick_sort(nums, left, right):
+    def partition(nums, left, right):
+        # 基准值
+        pivot = nums[left]
+        while left < right:
+            while left < right and nums[right] >= pivot:
+                right -= 1
+            # 比基准值小的放前面
+            nums[left] = nums[right]
+            while left < right and nums[left] <= pivot:
+                left += 1
+            # 比基准值大的放后面
+            nums[right] = nums[left]
+        # 基准值的正确位置
+        nums[left] = pivot
+        print(nums)
+        return left
+
+    if left < right:
+        pivotIndex = partition(nums, left, right)
+        quick_sort(nums, left, pivotIndex - 1)
+        quick_sort(nums, pivotIndex + 1, right)
+
+    return nums
+
+
 nums = [5, 3, 1, 7, 2, 6]
-# bubble_sort(nums)
-merge_sort(nums)
+quick_sort(nums, 0, 5)
