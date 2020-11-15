@@ -54,6 +54,49 @@ def insert_sort(nums):
     return nums
 
 
+# 希尔排序
+def shell_sort(nums):
+    size = len(nums)
+
+    d = size // 2
+    while d > 0:
+        for i in range(d, size):
+            j = i
+            while j >= d and nums[j - d] > nums[j]:
+                nums[j], nums[j - d] = nums[j - d], nums[j]
+                j -= d
+        print(nums)
+        d //= 2
+
+    return nums
+
+
+# 归并排序
+def merge_sort(nums):
+    def merge(left, right):
+        result = []
+        i = j = 0
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                result.append(left[i])
+                i += 1
+            else:
+                result.append(right[j])
+                j += 1
+        # 将剩下的元素添加到末尾
+        result = result + left[i:] + right[j:]
+        print(result)
+        return result
+
+    size = len(nums)
+    if size <= 1:
+        return nums
+    mid = size // 2
+    left = merge_sort(nums[:mid])
+    right = merge_sort(nums[mid:])
+    return merge(left, right)
+
+
 nums = [5, 3, 1, 7, 2, 6]
 # bubble_sort(nums)
-insert_sort(nums)
+merge_sort(nums)
