@@ -124,5 +124,25 @@ def quick_sort(nums, left, right):
     return nums
 
 
+# 桶排序
+def bucket_sort(nums, defualtBucketSize=5):
+    maxVal, minVal = max(nums), min(nums)
+    bucketSize = defualtBucketSize
+    bucketCount = (maxVal - minVal) // bucketSize + 1
+    buckets = []
+    for i in range(bucketCount):
+        buckets.append([])
+    for num in nums:
+        buckets[(num - minVal) // bucketSize].append(num)
+    print(buckets)
+    nums.clear()
+    for bucket in buckets:
+        insert_sort(bucket)
+        nums.extend(bucket)
+
+    print(nums)
+    return nums
+
+
 nums = [5, 3, 1, 7, 2, 6]
-quick_sort(nums, 0, 5)
+bucket_sort(nums, 3)
