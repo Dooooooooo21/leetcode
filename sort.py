@@ -144,5 +144,5 @@ def bucket_sort(nums, defualtBucketSize=5):
     return nums
 
 
-nums = [5, 3, 1, 7, 2, 6, 9, 16]
+nums = [5, 3, 1, 7, 2, 6, 9, 16, 20]
 bucket_sort(nums, 3)
