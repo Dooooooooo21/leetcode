@@ -124,5 +124,20 @@ def quick_sort(nums, left, right):
     return nums
 
 
-nums = [5, 3, 1, 7, 2, 6]
-quick_sort(nums, 0, 5)
+# 计数排序
+def count_sort(nums):
+    tmp = [0] * (max(nums) + 1)
+    for num in nums:
+        tmp[num] += 1
+    i = 0
+    for j in range(len(tmp)):
+        while tmp[j] > 0:
+            nums[i] = j
+            tmp[j] -= 1
+            i += 1
+    print(nums)
+    return nums
+
+
+nums = [5, 3, 1, 7, 2, 2, 3, 6]
+count_sort(nums)
