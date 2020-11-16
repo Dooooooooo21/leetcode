@@ -129,9 +129,7 @@ def bucket_sort(nums, defualtBucketSize=5):
     maxVal, minVal = max(nums), min(nums)
     bucketSize = defualtBucketSize
     bucketCount = (maxVal - minVal) // bucketSize + 1
-    buckets = []
-    for i in range(bucketCount):
-        buckets.append([])
+    buckets = [[] for _ in range(bucketCount)]
     for num in nums:
         buckets[(num - minVal) // bucketSize].append(num)
     print(buckets)
@@ -144,5 +142,28 @@ def bucket_sort(nums, defualtBucketSize=5):
     return nums
 
 
+# 基数排序
+def radix_sort(nums):
+    mod = 10
+    div = 1
+    # 最大的数的位数决定最外层循环多少次
+    mostBit = len(str(max(nums)))
+    # 构造 mod 个空桶
+    buckets = [[] for _ in range(mod)]
+    while mostBit:
+        # 将数据放入对应桶中
+        for num in nums:
+            buckets[num // div % mod].append(num)
+        print(buckets)
+        i = 0
+        for bucket in buckets:
+            while bucket:
+                nums[i] = bucket.pop(0)
+                i += 1
+        div *= 10
+        mostBit -= 1
+    return nums
+
+
 nums = [5, 3, 1, 7, 2, 6, 9, 16, 22]
-bucket_sort(nums, 3)
+radix_sort(nums)
