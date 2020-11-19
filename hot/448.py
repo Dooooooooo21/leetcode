@@ -21,3 +21,7 @@ class Solution(object):
             nums[index] = -abs(nums[index])
 
         return [i + 1 for i, num in enumerate(nums) if num > 0]
+
+
+s = Solution()
+print(s.findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]))
