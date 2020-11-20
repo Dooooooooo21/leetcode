@@ -19,8 +19,12 @@ class MyThread(threading.Thread):
 
     def run(self):
         print('start ' + self.name)
+        # 获得锁后返回 True
+        threadLock.acquire()
         print_time(self.name, self.counter, 5)
         print('end ' + self.name)
+        # 释放锁
+        threadLock.release()
 
 
 def print_time(threadName, delay, counter):
@@ -30,6 +34,7 @@ def print_time(threadName, delay, counter):
         counter -= 1
 
 
+threadLock = threading.Lock()
 thread1 = MyThread(1, 'Thread-1', 1)
 thread2 = MyThread(2, 'Thread-2', 2)
 
