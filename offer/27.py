@@ -43,7 +43,7 @@ class Solution(object):
             return
 
         tmp = root.left
-        root.left = self.mirrorTree(root.right)
-        root.right = self.mirrorTree(tmp)
+        root.left = self.mirrorTree2(root.right)
+        root.right = self.mirrorTree2(tmp)
 
         return root
