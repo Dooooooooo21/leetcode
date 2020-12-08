@@ -24,10 +24,9 @@ class Solution(object):
             return []
 
         result = []
-        node_list = []
+        node_list = [root]
 
-        node_list.append(root)
-        while len(node_list) > 0:
+        while node_list:
             tmp_node = node_list.pop(0)
             result.append(tmp_node.val)
             if tmp_node.left:
