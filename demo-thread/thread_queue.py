@@ -6,6 +6,7 @@
 # @Desc    :
 
 import time
+from datetime import datetime
 import queue
 import threading
 
@@ -19,7 +20,7 @@ class Worker(threading.Thread):
 
     def run(self):
         while True:
-            # 队列为空 推出线程
+            # 队列为空 退出线程
             if self.queue.empty():
                 break
             # 获取队列数据
@@ -30,6 +31,8 @@ class Worker(threading.Thread):
             self.queue.task_done()
 
 
+startTime = datetime.now()
+print(startTime)
 # 队列
 q = queue.Queue()
 # 加入100个任务队列
@@ -42,3 +45,6 @@ for i in range(10):
     Worker(threadName, q)
 
 q.join()
+
+endTime = datetime.now()
+print('cost : ', endTime - startTime)
