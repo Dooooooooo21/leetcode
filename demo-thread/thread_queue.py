@@ -10,7 +10,10 @@ from datetime import datetime
 import queue
 import threading
 
+from openpyxl.compat import singleton
 
+
+# @singleton
 class Worker(threading.Thread):
     def __init__(self, name, queue):
         threading.Thread.__init__(self)

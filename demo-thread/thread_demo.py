@@ -279,14 +279,14 @@ def car(name):
             print('[%s] green light is on,start going...' % name)
 
 
-startTime = time.time()
-light = threading.Thread(target=lighter, )
-light.start()
-
-car = threading.Thread(target=car, args=('MINT',))
-car.start()
-endTime = time.time()
-print('用时：', endTime - startTime)
+# startTime = time.time()
+# light = threading.Thread(target=lighter, )
+# light.start()
+#
+# car = threading.Thread(target=car, args=('MINT',))
+# car.start()
+# endTime = time.time()
+# print('用时：', endTime - startTime)
 
 '''
                            GIL  全局解释器

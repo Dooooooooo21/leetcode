@@ -11,6 +11,8 @@ class Solution(object):
             if n & flag:
                 count += 1
             flag = flag << 1
+            print(flag)
+        print(count)
 
         return count
 
@@ -26,3 +28,7 @@ class Solution(object):
             n = (n - 1) & n
 
         return count
+
+
+s = Solution()
+s.hammingWeight(0o0000000000000000000000000001011)
