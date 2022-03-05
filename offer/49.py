@@ -21,11 +21,11 @@ class Solution(object):
             dp[i] = min(n2, n3, n5)
             if dp[i] == n2:
                 a += 1
-            if dp[i] == n3:
+            elif dp[i] == n3:
                 b += 1
-            if dp[i] == n5:
+            elif dp[i] == n5:
                 c += 1
-        print(dp)
+        print(dp[-1])
         return dp[-1]
 
 
